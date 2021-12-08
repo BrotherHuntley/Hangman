@@ -1,0 +1,139 @@
+.Hangman {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+.Hangman-h1 {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin-top: 0%;
+}
+
+.Hangman-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+.Hangman-allLetters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 1em;
+}
+
+.Hangman-guessed {
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.Hangman-input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 2em;
+}
+
+.Hangman-man {
+    display: flex;
+}
+
+.Hangman-Head {
+    width: 60px;
+    height: 60px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: fixed;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: 40px;
+}
+
+.Hangman-Body {
+    width: 10px;
+    height: 100px;
+    background-color: yellow;
+    position: fixed;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: 80px;
+}
+
+.Hangman-LArm {
+    width: 10px;
+    height: 60px;
+    background-color: yellow;
+    position: fixed;
+    left: 50%;
+    margin-left: -20px;
+    margin-top: 110px;
+    transform: rotate(30deg);
+}
+
+.Hangman-RArm {
+    width: 10px;
+    height: 60px;
+    background-color: yellow;
+    position: fixed;
+    left: 50%;
+    margin-left: 10px;
+    margin-top: 110px;
+    transform: rotate(-30deg);
+}
+
+.Hangman-LLeg {
+    width: 10px;
+    height: 60px;
+    background-color: yellow;
+    position: fixed;
+    left: 50%;
+    margin-left: -20px;
+    margin-top: 170px;
+    transform: rotate(30deg);
+}
+
+.Hangman-RLeg {
+    width: 10px;
+    height: 60px;
+    background-color: yellow;
+    position: fixed;
+    left: 50%;
+    margin-left: 10px;
+    margin-top: 170px;
+    transform: rotate(-30deg);
+}
+
+.Hangman-Gallows > * {
+    background-color: yellow;
+    position: fixed;
+    left: 50%;
+}
+
+.Hangman-Gallows1 {
+    width: 20px;
+    height: 250px;
+    margin-left: 80px;
+    margin-top: 10px;
+}
+
+.Hangman-Gallows2 {
+    width: 180px;
+    height: 20px;
+    margin-left: -80px;
+    margin-top: 10px;
+}
+
+.Hangman-Gallows3 {
+    width: 180px;
+    height: 40px;
+    margin-left: -50px;
+    margin-top: 250px;
+}
