@@ -44,7 +44,9 @@ class Hangman extends Component {
 
                     isLetter =true;
 
-                    let win = !currentCorrect.includes(false) ? alert('You Win!!!'): null;
+                    if (!currentCorrect.includes(false)) {
+                        alert('You Win!!!')
+                    }
                 }
             }
 
@@ -58,7 +60,9 @@ class Hangman extends Component {
                     let curWrongCount = this.state.wrongCount;
                     this.setState({wrongCount: curWrongCount+1});
                     let lossStatement = 'You Lose... The word was ' + this.props.word.join("");
-                    let lose = curWrongCount === 6 ? alert(lossStatement): null;
+                    if (curWrongCount === 6) {
+                        alert(lossStatement)
+                    }
                 }  
             }
         }
