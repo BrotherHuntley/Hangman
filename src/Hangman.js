@@ -126,6 +126,7 @@ class Hangman extends Component {
                 <div className="Hangman-man">
                     {hangmanArray.slice(0,this.state.wrongCount)}
                 </div>
+                <p>Ali is great!!!</p>
             </div>
             
         );
