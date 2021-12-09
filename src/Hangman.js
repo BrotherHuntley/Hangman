@@ -16,6 +16,7 @@ class Hangman extends Component {
         this.clickCountries = this.clickCountries.bind(this);
         this.clickAnimals = this.clickAnimals.bind(this);
         this.resetFunction = this.resetFunction.bind(this);
+        this.clickElements = this.clickElements.bind(this);
     }
 
     handleKey(e) {
@@ -78,6 +79,11 @@ class Hangman extends Component {
         setTimeout(() => {this.resetFunction()}, 1)
     }
 
+    clickElements(e) {
+        this.props.elementsClicked();
+        setTimeout(() => {this.resetFunction()}, 1)
+    }
+
     resetFunction() {        
         this.setState({wrongCount: 0});
         this.setState({LettersArray: this.props.letterArray});
@@ -114,6 +120,7 @@ class Hangman extends Component {
                     <p style={{color: "white"}}>New Game:</p>   
                     <button onClick={this.clickCountries}>Countries</button>
                     <button onClick={this.clickAnimals}>Animals</button>
+                    <button onClick={this.clickElements}>Elements</button>
                 </div>
                 <div className="Hangman-allLetters">{allLetters}</div>
                 <input 

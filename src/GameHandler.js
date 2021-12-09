@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Hangman from "./Hangman";
 import Countries from "./Countries";
 import Animals from "./Animals";
+import Elements from "./Elements";
 import LetterArray from "./LetterArray";
 
 
@@ -14,6 +15,7 @@ class GameHandler extends Component {
         }
         this.countriesClicked = this.countriesClicked.bind(this);
         this.animalsClicked = this.animalsClicked.bind(this);
+        this.elementsClicked = this.elementsClicked.bind(this);
     }
 
     countriesClicked(e) {
@@ -29,6 +31,13 @@ class GameHandler extends Component {
         this.forceUpdate();
     }
 
+    elementsClicked(e) {
+        let wordsArray = this.state.words;
+        wordsArray = Elements();
+        this.setState({words: wordsArray});
+        this.forceUpdate();
+    }
+
     render () {
         let word = this.state.words[Math.floor(Math.random()*this.state.words.length)];
         let wordArray = word.split('')
@@ -38,7 +47,8 @@ class GameHandler extends Component {
             word={wordArray} 
             letterArray={letterArray}
             countriesClicked={this.countriesClicked}
-            animalsClicked={this.animalsClicked}/>
+            animalsClicked={this.animalsClicked}
+            elementsClicked={this.elementsClicked} />
         );
     } 
 }
