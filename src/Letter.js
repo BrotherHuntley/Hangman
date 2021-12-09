@@ -1,3 +1,5 @@
+//Renders the letters of the hidden word
+
 import React, {Component} from "react";
 import './Letter.css'
 

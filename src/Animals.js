@@ -1,3 +1,5 @@
+// Function to return an array of animals
+
 function Animals() {
     return(
         [        

@@ -1,5 +1,6 @@
+//Renders the alphabet with it's font color
+
 import React, {Component} from "react";
-import './AllLetters.css'
 
 class AllLetters extends Component {
     render() {

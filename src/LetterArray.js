@@ -1,31 +1,7 @@
+//Function to return the alphabet and the color white for the font color
+
 function LetterArray() {  
-    return ([
-        ['a', 'White'],
-        ['b', 'White'],
-        ['c', 'White'],
-        ['d', 'White'],
-        ['e', 'White'],
-        ['f', 'White'],
-        ['g', 'White'],
-        ['h', 'White'],
-        ['i', 'White'],
-        ['j', 'White'],
-        ['k', 'White'],
-        ['l', 'White'],
-        ['m', 'White'],
-        ['n', 'White'],
-        ['o', 'White'],
-        ['p', 'White'],
-        ['q', 'White'],
-        ['r', 'White'],
-        ['s', 'White'],
-        ['t', 'White'],
-        ['u', 'White'],
-        ['v', 'White'],
-        ['w', 'White'],
-        ['x', 'White'],
-        ['y', 'White'],
-        ['z', 'White']
-    ]);
+    const alphabet =['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    return (alphabet.map(letter => [letter, 'white']));
 }
 export default LetterArray

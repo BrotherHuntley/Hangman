@@ -1,3 +1,5 @@
+//Function returning an array of Countries
+
 function Countries() {
     return(
         [
