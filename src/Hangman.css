@@ -33,15 +33,10 @@
     text-align: center;
 }
 
-.Hangman-input {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 2em;
-}
 
 .Hangman-man {
     display: flex;
+    position: relative;
 }
 
 .Hangman-Head {
@@ -49,7 +44,7 @@
     height: 60px;
     background-color: yellow;
     border-radius: 50%;
-    position: fixed;
+    position: absolute;
     left: 50%;
     margin-left: -30px;
     margin-top: 40px;
@@ -59,7 +54,7 @@
     width: 10px;
     height: 100px;
     background-color: yellow;
-    position: fixed;
+    position: absolute;
     left: 50%;
     margin-left: -5px;
     margin-top: 80px;
@@ -69,7 +64,7 @@
     width: 10px;
     height: 60px;
     background-color: yellow;
-    position: fixed;
+    position: absolute;
     left: 50%;
     margin-left: -20px;
     margin-top: 110px;
@@ -80,7 +75,7 @@
     width: 10px;
     height: 60px;
     background-color: yellow;
-    position: fixed;
+    position: absolute;
     left: 50%;
     margin-left: 10px;
     margin-top: 110px;
@@ -91,7 +86,7 @@
     width: 10px;
     height: 60px;
     background-color: yellow;
-    position: fixed;
+    position: absolute;
     left: 50%;
     margin-left: -20px;
     margin-top: 170px;
@@ -102,7 +97,7 @@
     width: 10px;
     height: 60px;
     background-color: yellow;
-    position: fixed;
+    position: absolute;
     left: 50%;
     margin-left: 10px;
     margin-top: 170px;
@@ -111,7 +106,7 @@
 
 .Hangman-Gallows > * {
     background-color: yellow;
-    position: fixed;
+    position: absolute;
     left: 50%;
 }
 

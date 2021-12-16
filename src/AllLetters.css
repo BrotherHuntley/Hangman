@@ -1,0 +1,10 @@
+.AllLetters {
+    font-size: 1em;
+}
+
+.AllLetters:hover {
+    font-size: 1em;
+    font-weight: 1000;
+    cursor: pointer;
+    color: yellow;
+}

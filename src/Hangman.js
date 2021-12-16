@@ -14,27 +14,24 @@ class Hangman extends Component {
             correct: new Array(this.props.word.length).fill(false),
             LettersShown: new Array(this.props.word.length).fill(' ')
         }        
-        this.handleKey = this.handleKey.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.resetFunction = this.resetFunction.bind(this);
         this.clickAnimals = this.clickAnimals.bind(this);
         this.clickCountries = this.clickCountries.bind(this);
         this.clickElements = this.clickElements.bind(this);
     }
 
-    //Triggers when new key is pressed. Checks if key is letter. Checks if the letter has been pressed already.
     //Checks if the letter is in given word. Updates the state for letter and the "score"
-    handleKey(e) {
-        if (e.keyCode >= 65 && e.keyCode <= 90) { //if key is a letter
-            let isLetter = false;
-            
+    handleClick(clickedLetter) {
+        let isLetter = false;
             for (let i = 0; i < this.props.word.length; i++){ //iterate over every letter in word
                 let curLetter = this.props.word[i];
 
-                if (e.key.toLowerCase() === curLetter.toLowerCase()) { //if the letter exists in the word
+                if (clickedLetter.toLowerCase() === curLetter.toLowerCase()) { //if the letter exists in the word
                     //Reveal correct letter
                     let currentShown = this.state.LettersShown;
-                    currentShown.splice(i,1,this.props.word[i])
-                    this.setState({LettersShown: currentShown})
+                    currentShown.splice(i,1,this.props.word[i]);
+                    this.setState({LettersShown: currentShown});
 
                     //Update "truth" array
                     let currentCorrect = this.state.correct;
@@ -42,9 +39,9 @@ class Hangman extends Component {
                     this.setState({correct: currentCorrect});
                      
                     //Color correct letter green
-                    let curIndex = e.key.toLowerCase().charCodeAt(0)-97;
                     let LetterArray = this.state.LettersArray;
-                    LetterArray.splice(curIndex,1,[e.key.toLowerCase(), 'Green'])
+                    let curIndex = LetterArray.findIndex(element => element.includes(clickedLetter.toLowerCase()));
+                    LetterArray.splice(curIndex,1,[clickedLetter, 'Green'])
                     this.setState({LettersArray: LetterArray});
 
                     isLetter =true;
@@ -55,11 +52,11 @@ class Hangman extends Component {
 
             if (!isLetter) { //if guessed letter is wrong
                 let LetterArray = this.state.LettersArray;
-                let curIndex = LetterArray.findIndex(element => element.includes(e.key));
+                let curIndex = LetterArray.findIndex(element => element.includes(clickedLetter.toLowerCase()));
                 
                 if (!LetterArray[curIndex].includes('Red')) { //if guessed letter hasn't been previously guessed
                     //Color wrong letter red
-                    LetterArray.splice(curIndex,1,[e.key.toLowerCase(), 'Red'])
+                    LetterArray.splice(curIndex,1,[clickedLetter.toLowerCase(), 'Red'])
                     this.setState({LettersArray: LetterArray});  
 
                     //Update the amount of wrong guesses
@@ -71,7 +68,7 @@ class Hangman extends Component {
                     }
                 }  
             }
-        }
+        
     }
 
     //Called when the new category button is clicked. Calls function from GameHandler.js to retrieve new word.
@@ -105,7 +102,7 @@ class Hangman extends Component {
         //Renders the alphabet with the colors of each letter depending on guessed state
         let LetterArray = this.state.LettersArray;
         let allLetters = LetterArray.map((n,i) => 
-            <AllLetters key={i} letter={n[0]} color={n[1]}/>)
+            <AllLetters key={i} letter={n[0]} color={n[1]} clickFunction={this.handleClick}/>)
         
         //Creates array for rendering the hangman
         let hangmanArray = [
@@ -132,12 +129,6 @@ class Hangman extends Component {
                     <button onClick={this.clickElements}>Elements</button>
                 </div>
                 <div className="Hangman-allLetters">{allLetters}</div>
-                <input 
-                    type="text"
-                    className="Hangman-input"
-                    maxLength="0"
-                    onKeyUp={this.handleKey}
-                />
                 <div className="Hangman-guessed">{letters}</div>
                 <div className="Hangman-man">
                     {hangmanArray.slice(0,this.state.wrongCount)}
